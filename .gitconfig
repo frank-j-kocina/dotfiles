@@ -1,0 +1,18 @@
+[core]
+  user = Frank J Kocina
+  email = frank.j.kocina@gmail.com
+
+[user]
+  name = Frank J Kocina
+  email = frank.j.kocina@gmail.com
+  signingkey = redacted
+
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+
+[commit]
+  gpgsign = true
