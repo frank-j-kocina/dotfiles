@@ -5,40 +5,13 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # aliases
-alias redis="redis-server /usr/local/etc/redis.conf"
-alias java7="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_72.jdk/Contents/Home"
-alias java8="export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home"
+alias emacs="emacs -nw"
 
 # key bindings
-bindkey '^[[1;9C' forward-word # alt + right arrow
-bindkey '^[[1;9D' backward-word # alt + left arrow
-bindkey '^[[1;5D' beginning-of-line # control left arrow
-bindkey '^[[1;5C' end-of-line # control right arrow
-
-# functions
-rmlogs() {
-    rm admin/logs/*
-    rm api/logs/*
-    rm care-management/logs/*
-    rm domain/logs/*
-    rm imports/logs/*
-    rm voice/logs/*
-}
-
-gitprune() {
-    git co master && git branch --merged | grep -v "development" | grep -v "master" | xargs -n 1 git branch -d;
-    git co development && git branch --merged | grep -v "development" | grep -v "master" | xargs -n 1 git branch -d;
-}
-
-nginxmah() {
-    cp /usr/local/etc/nginx/mah.nginx.conf /usr/local/etc/nginx/nginx.conf
-    nginx -s reload
-}
-
-nginxcp() {
-    cp /usr/local/etc/nginx/cp.nginx.conf /usr/local/etc/nginx/nginx.conf
-    nginx -s reload
-}
+bindkey "^[[1;9C" forward-word
+bindkey "^[[1;9D" backward-word
+bindkey "^[[1;5D" beginning-of-line
+bindkey "^[[1;5C" end-of-line
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -67,34 +40,15 @@ source $ZSH/oh-my-zsh.sh
 
 export AWS_DEFAULT_REGION="us-east-1"
 
-export JAVA_OPTS="-Xms1024m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=2048m"
+export JAVA_OPTS="-Xms512m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=2048m"
 
 export HOME=/Users/fkocina
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_72.jdk/Contents/Home
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home
-#export JAVA_HOME=/Library/Java/Home
-export IDEA_JDK=/Library/Java/Home
-export IDEA_JDK_64=/Library/Java/Home
-export ADK_HOME=/Library/adk
-export GIT_HOME=/usr/local/git
-export GROOVY_HOME=/Users/fkocina/.gvm/groovy/current
-export GRAILS_HOME=/Users/fkocina/.gvm/grails/current
-export SPRINGBOOT_HOME=/Users/fkocina/.gvm/springboot/current
-export REDIS_HOME=/usr/local/Cellar/redis/2.8.12
-export MYSQL_HOME=/usr/local/Cellar/mysql/5.6.19
-export P7ZIP_HOME=/usr/local/Cellar/p7zip/9.20.1
-export NODE_HOME=/usr/local/bin/node
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home"
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 export PATH=$PATH:$HOME
-export PATH=$PATH:$ADK_HOME/tools:$ADK_HOME/platform-tools
 export PATH=$PATH:$JAVA_HOME
-export PATH=$PATH:$GIT_HOME/bin
-export PATH=$PATH:$GROOVY_HOME/bin
-export PATH=$PATH:$GRAILS_HOME/bin
-export PATH=$PATH:$REDIS_HOME/bin
-export PATH=$PATH:$MYSQL_HOME/bin
-export PATH=$PATH:$P7ZIP_HOME/bin
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/fkocina/.gvm/bin/gvm-init.sh" && -z $(which gvm-init.sh | grep '/gvm-init.sh') ]] && source "/Users/fkocina/.gvm/bin/gvm-init.sh"
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="${HOME}/.sdkman"
+[[ -s "/Users/jkocina/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jkocina/.sdkman/bin/sdkman-init.sh"
