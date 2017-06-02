@@ -4,8 +4,13 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="robbyrussell"
 
-# aliases
+##### aliases
+
+# always open emacs in the terminal
 alias emacs="emacs -nw"
+
+# prune local git branches from the current repo
+alias gitpl="git branch --merged master | grep -v '^ *master$' | xargs git branch -d"
 
 # key bindings
 bindkey "^[[1;9C" forward-word
