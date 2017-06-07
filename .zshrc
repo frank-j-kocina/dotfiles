@@ -47,13 +47,13 @@ export AWS_DEFAULT_REGION="us-east-1"
 
 export JAVA_OPTS="-Xms512m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=2048m"
 
-export HOME=/Users/fkocina
+export HOME="/Users/${USER}"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home"
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
-export PATH=$PATH:$HOME
-export PATH=$PATH:$JAVA_HOME
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
+export PATH="${PATH}:${HOME}"
+export PATH="${PATH}:${JAVA_HOME}"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="${HOME}/.sdkman"
-[[ -s "/Users/jkocina/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jkocina/.sdkman/bin/sdkman-init.sh"
+[[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"
