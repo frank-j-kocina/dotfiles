@@ -12,11 +12,33 @@ alias emacs="emacs -nw"
 # prune local git branches from the current repo
 alias gitpl="git branch --merged master | grep -v '^ *master$' | xargs git branch -d"
 
-# key bindings
+# old key bindings
 bindkey "^[[1;9C" forward-word
 bindkey "^[[1;9D" backward-word
 bindkey "^[[1;5D" beginning-of-line
 bindkey "^[[1;5C" end-of-line
+
+# key bindings
+bindkey '^[[C' forward-word
+bindkey '^[[D' backward-word
+bindkey '^[begin' beginning-of-line
+bindkey '^[end' end-of-line
+bindkey -s "^[Op" "0"
+bindkey -s "^[Ol" "."
+bindkey -s "^[OM" "^M"
+bindkey -s "^[Oq" "1"
+bindkey -s "^[Or" "2"
+bindkey -s "^[Os" "3"
+bindkey -s "^[Ot" "4"
+bindkey -s "^[Ou" "5"
+bindkey -s "^[Ov" "6"
+bindkey -s "^[Ow" "7"
+bindkey -s "^[Ox" "8"
+bindkey -s "^[Oy" "9"
+bindkey -s "^[Ok" "+"
+bindkey -s "^[Om" "-"
+bindkey -s "^[Oj" "*"
+bindkey -s "^[Oo" "/"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
